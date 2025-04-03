@@ -1,0 +1,562 @@
+/* 기본 배경 색상 설정 */
+body {
+  background-color: black;
+}
+
+#intro,
+.first,
+.two,
+.tree,
+#stone_turtle,
+#habitat {
+  width: 100vw; /* 뷰포트 너비 100% */
+  max-width: 100vw; /* 혹시 모를 제한 해제 */
+  height: 100vh; /* 뷰포트 높이 100% */
+  margin: 0;
+  padding: 0;
+}
+
+/* 컨테이너 기본 설정 - 반응형 최대 너비 조절 */
+#container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#asd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: sticky;
+  top: 0; /* 스크롤 시 상단에 고정 */
+  z-index: 1000; /* 다른 요소 위에 배치 */
+}
+
+.dasi,
+.dasi2 {
+  width: 150px; /* 필요에 따라 조정 */
+  height: 150px; /* 필요에 따라 조정 */
+}
+
+.dasi img {
+  width: 150px;
+  height: 150px;
+  transition: opacity 0.3s ease-in-out;
+  background-color: black;
+  border-radius: 0px 80px 80px 80px; /* 모서리 둥글게 */
+}
+
+.dasi img:hover {
+  content: url("./img/돌거북로고2.png"); /* 변경할 이미지 경로 */
+}
+
+/* 메뉴 기본 스타일 */
+#slideMenu {
+  position: fixed;
+  top: 50px; /* `dasi2`를 가리지 않도록 조정 */
+  right: -200px; /* 처음에는 화면 밖에 위치 */
+  width: 180px; /* 메뉴 크기 줄이기 */
+  height: auto; /* 높이를 내용에 맞게 조정 */
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out; /* 부드러운 슬라이드 효과 */
+  padding: 10px;
+  border-radius: 10px 0 0 10px; /* 모서리 둥글게 */
+}
+
+/* 메뉴가 나타날 때 */
+.menu-visible {
+  right: 10px !important; /* 메뉴가 너무 앞으로 나오지 않게 조정 */
+}
+
+/* 메뉴 안 리스트 스타일 */
+#slideMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#slideMenu ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#slideMenu ul li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: center;
+}
+
+/* 헤더 스타일 - 검은색 배경과 글자 크기 설정 */
+header {
+  background-color: black;
+  font-size: 30px;
+  justify-content: left;
+}
+
+/* 로고 이미지 설정 */
+#rogo {
+  width: 100%;
+  height: 500px;
+  background-image: url("./img/Dol9buk_20250319_161803_0012.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 네비게이션 메뉴 스타일 */
+header nav ul {
+  display: flex; /* 메뉴 가로 정렬 */
+  justify-content: center; /* 항목 가운데 정렬 */
+  height: 50px; /* 네비 높이 지정 */
+}
+
+header nav ul li {
+  list-style: none; /* 리스트 목록 기호 삭제 */
+  margin: 0 20px;
+}
+
+header nav ul li a {
+  color: white; /* 글자 색상 흰색 */
+  text-decoration: none; /* 밑줄 제거 */
+  font-size: 18px; /* 기본 글자 크기 */
+  transition: font-size 0.3s ease, color 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+/* 네비게이션 링크 호버 효과 */
+header nav ul li a:hover {
+  font-size: 22px; /* 호버 시 글자 크기 증가 */
+  color: #ffcc00; /* 호버 시 색상 변경 */
+}
+
+/* 부드러운 스크롤 이동 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* dol 섹션 배경 설정 */
+#dol {
+  background-color: white;
+}
+
+/* 마키(Marquee) 스타일 - 가로로 움직이는 텍스트 효과 */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.marquee-content {
+  display: flex;
+  min-width: 200%;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  padding-right: 50px; /* 글자 사이 간격 */
+}
+
+/* 마키 애니메이션 정의 */
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  } /* 절반만 이동해서 끊김 없이 반복 */
+}
+
+/* 인트로 섹션 스타일 */
+#intro {
+  background: black;
+  height: 2700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* first 클래스 스타일 - 큰 글씨 표시 */
+.first {
+  background-color: white;
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+/* one 클래스 스타일 - 수평선과 중앙 박스 */
+.one {
+  background-color: white;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 중앙 박스 스타일 */
+.box {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+/* 수평선 스타일 */
+hr {
+  position: absolute;
+  width: 990px;
+  border-top: 5px solid black;
+  margin: 0;
+  top: 50%;
+  z-index: 0;
+}
+
+/* 캐릭터 슬라이드 스타일 */
+.character-slide {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Swiper 슬라이더 공통 스타일 */
+.mySwiper,
+.mySwiper2 {
+  width: 100% !important;
+  overflow: hidden; /* 넘치는 부분 숨기기 */
+}
+
+.swiper {
+  width: 100%;
+  height: 400px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition-timing-function: linear !important; /* 일정한 속도로 이동 */
+}
+
+.swiper-slide {
+  flex-shrink: 0; /* 슬라이드 크기 유지 */
+}
+
+/* 자동 슬라이드 애니메이션 부드럽게 만들기 */
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  transition: all 0.3s ease;
+}
+
+/* two 클래스 스타일 - 흰색 배경 섹션 */
+.two {
+  background-color: white;
+  height: 1000px;
+  width: 990px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 돌거북 이름 텍스트 스타일 */
+.dol_two_name {
+  color: black;
+  font-size: 90px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+/* 돌거북 설명 텍스트 스타일 */
+.dol_two_text {
+  color: black;
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+/* tree 클래스 스타일 - 검은색 배경 섹션 */
+.tree {
+  background-color: black;
+  height: 1000px;
+  width: 990px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 돌거북 tree 텍스트 스타일 - 흰색 글자 */
+.dol_tree_text {
+  color: white;
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+/* 돌거북 이미지 스타일 */
+.dol_tree_img {
+  width: 300px;
+  height: 350px;
+  background-image: url("./img/냥냥돌거북.0001.png");
+  background-size: 700px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+}
+
+/* stone_turtle 섹션 스타일 - 검은색 배경의 유연한 레이아웃 */
+#stone_turtle {
+  display: flex;
+  flex-direction: column; /* 이미지들을 세로 방향으로 배치 */
+  justify-content: space-between; /* 첫 번째 이미지는 위, 두 번째 이미지는 아래로 배치 */
+  align-items: center; /* 중앙 정렬 (기본적으로 적용되지만 명확하게 유지) */
+  height: 100vh; /* 섹션 높이를 화면 높이(100%)로 설정 */
+  width: 100vw; /* 섹션 너비를 화면 너비(100%)로 설정 */
+  padding: 20px 0; /* 위아래 여백 추가 */
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 이미지 컨테이너 스타일 */
+.article_img {
+  position: relative; /* 내부 요소 정렬을 위한 상대 위치 설정 */
+  display: flex; /* 내부 요소 정렬을 위한 flex 사용 */
+  justify-content: center; /* 내부 이미지 중앙 정렬 */
+  align-items: center; /* 내부 이미지 중앙 정렬 */
+  width: 80%; /* 부모 요소의 90% 크기로 설정 */
+  max-width: 350px; /* 최대 너비 400px로 제한 */
+  height: auto; /* 높이를 자동으로 설정 (비율 유지) */
+  aspect-ratio: 3/4; /* 이미지 비율 유지 (3:4) */
+  margin: 10px; /* 이미지 간 여백 */
+}
+
+/* 첫 번째 이미지는 왼쪽 정렬 */
+.article_img:first-child {
+  align-self: flex-start; /* 부모 요소의 왼쪽 끝에 정렬 */
+}
+
+/* 두 번째 이미지는 오른쪽 정렬 */
+.article_img:last-child {
+  align-self: flex-end; /* 부모 요소의 오른쪽 끝에 정렬 */
+}
+
+/* 이미지 스타일 */
+.article_img img {
+  width: 100%; /* 부모 요소(article_img)의 너비에 맞게 설정 */
+  height: 100%; /* 부모 요소(article_img)의 높이에 맞게 설정 */
+  object-fit: cover; /* 이미지 비율을 유지하면서 잘리지 않도록 조정 */
+  border-radius: 10px; /* 이미지의 모서리를 둥글게 설정 */
+}
+
+/* 설명 텍스트 스타일 */
+.hover-text {
+  position: absolute;
+  top: 50%; /* 이미지의 가운데 정렬 */
+  transform: translateY(-50%); /* 세로 중앙 정렬 */
+  width: 790px; /* 설명 박스 너비 */
+  height: 350px; /* 설명 박스 높이 */
+  color: white; /* 글자색 검정 */
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0; /* 기본적으로 숨김 */
+  transition: opacity 0.3s ease, left 0.3s ease, right 0.3s ease; /* 부드러운 애니메이션 */
+  font-size: 50px;
+  text-align: center;
+}
+
+/* 이미지 호버 효과 - 텍스트 표시 */
+.article_img:hover .hover-text {
+  opacity: 1;
+}
+
+/* 첫 번째 이미지: 설명을 오른쪽에 배치 */
+.article_img:first-child .hover-text {
+  left: 160%; /* 이미지 오른쪽에 배치 */
+}
+
+/* 두 번째 이미지: 설명을 왼쪽에 배치 */
+.article_img:last-child .hover-text {
+  right: 160%; /* 이미지 왼쪽에 배치 */
+}
+
+/* 호버 시 설명 표시 */
+.article_img:hover .hover-text {
+  opacity: 1;
+}
+
+/* 텍스트 영역 스타일 */
+.article_text {
+  flex: 1;
+  color: white;
+  flex: 2; /* 제목보다 더 넓은 영역 차지 */
+}
+
+/* 텍스트 리스트 아이템 스타일 */
+.article_text li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  color: white;
+}
+
+/* habitat 섹션 스타일 */
+#habitat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: black;
+}
+
+/* 아티클 제목 스타일 */
+.article_title {
+  flex: 1;
+}
+
+/* habitat 섹션 내용 레이아웃 */
+#habitat .article_contents {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* un, sk 컴포넌트 스타일 */
+#habitat .un,
+#habitat .sk {
+  flex: 1;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  object-fit: contain;
+}
+
+/* 제목 마진 설정 */
+#habitat h3 {
+  margin-bottom: 10px;
+}
+
+/* 유튜브, 치지직 로고 스타일 */
+.youtube-logo,
+.chzzk-logo {
+  display: inline-block;
+  margin-left: 5px;
+  text-decoration: none;
+  color: red;
+}
+
+/* 로고 링크 이미지 스타일 */
+.logo-link img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* 푸터 스타일 */
+footer {
+  background-color: black;
+  color: white;
+}
+
+/* 공통 중앙 정렬 스타일 - 중복 제거 */
+#intro,
+#stone_turtle,
+#habitat,
+.first,
+.two,
+.tree,
+.one,
+header,
+#rogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 최대 너비 공통 설정 */
+#intro,
+header nav,
+#rogo,
+.first,
+.two,
+.tree,
+.one,
+.swiper {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 미디어 쿼리 - 태블릿 크기 */
+@media screen and (max-width: 1024px) {
+  /* 패딩 추가 */
+  #intro,
+  header nav,
+  #rogo,
+  .first,
+  .two,
+  .tree,
+  .one,
+  .swiper,
+  .hover-text {
+    padding: 0 20px;
+  }
+}
+
+/* 미디어 쿼리 - 모바일 크기 */
+@media screen and (max-width: 768px) {
+  /* stone_turtle 세로 배치, 패딩 축소 */
+  #intro,
+  header nav,
+  #rogo,
+  .first,
+  .two,
+  .tree,
+  .one,
+  .swiper,
+  .hover-text {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  /* 이미지 크기 조정 */
+  .article_img {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  /* 호버 텍스트 폰트 크기 축소 */
+  .hover-text {
+    font-size: 14px;
+  }
+}
+
+@keyframes swiper {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  } /* 절반만 이동해서 끊김 없이 반복 */
+}
